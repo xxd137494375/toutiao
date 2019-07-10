@@ -1,0 +1,50 @@
+<html>
+<body>
+##这里看不到我
+#*
+    这里也看不到我
+*#
+
+name:$!{name}
+${name2}
+hello vm
+aaa
+<br>
+
+    #foreach ($color in $colors)
+    Color$!{foreach.count}/${foreach.index}:$!{color}
+    #end
+
+#foreach($key in $map.keySet())
+    Number $!{foreach.count}/${foreach.index}:$!{key} $map.get($key)
+#end
+
+
+$!{user.name}
+$!{user.getName()}
+<br>
+#set($title = "bupt")
+Include: #include("header.vm")
+<br>
+Parse: #parse("header.vm")
+
+
+#macro (render_color $color,$index)
+Color By Macro $index,$color
+#end
+
+#foreach($color in $colors)//这个不太明白
+    #render_color()
+#end
+
+#set($hello = "hello")
+#set($hworld1 ="${hello} world")
+#set($hworld2='${hello} world')
+
+hworld1:${hworld1} <br>
+hworld2:${hworld2} <br>
+
+$!{colors.size()}
+</body>
+
+</html>
