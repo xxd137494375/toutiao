@@ -34,7 +34,7 @@ public class HomeController {
         for(News news:newsList){
             ViewObject vo = new ViewObject();
             vo.set("news",news);
-            vo.set("user",userService.getUser(news.getId()));
+            vo.set("user",userService.getUser(news.getUserId()));
             vos.add(vo);
         }
         return vos;
